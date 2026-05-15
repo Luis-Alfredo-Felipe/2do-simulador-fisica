@@ -1,0 +1,268 @@
+/* Variables de color tácticas */
+:root {
+    --fondo: #f4f4f9;
+    --texto: #333;
+    --primario: #0056b3;
+    --secundario: #4caf50;
+    --borde: #ccc;
+    --bloque-color: #d9534f;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-principal {
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center !important;
+    color: #004aad !important;
+    border-bottom: 3px solid #004aad;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    width: 100%;
+    display: block;
+}
+
+/* Enunciado e Imagen */
+.seccion-enunciado-texto {
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+/* Contenedor principal de las imágenes */
+.seccion-enunciado-imagen {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Separación entre ambas tarjetas */
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Tarjeta individual para controlar el tamaño y centrar el título */
+.tarjeta-imagen {
+    width: 35%; /* Reducimos el tamaño al 35% de la pantalla */
+    max-width: 350px; /* Límite máximo para que no se vean enormes en monitores grandes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Títulos rojos sobre las imágenes */
+.titulo-imagen {
+    color: #00010b; /* Color rojo */
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+/* Ajuste del borde y tamaño de la imagen */
+.imagen-problema {
+    width: 100%; 
+    height: 250px; /* Forzamos la misma altura para ambas */
+    object-fit: contain; /* Evita que la imagen se deforme dentro del cuadro */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px; 
+    box-sizing: border-box; /* Asegura que el borde y el padding no alteren el tamaño */
+}
+
+.texto-enunciado {
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 5px solid var(--primario);
+}
+
+/* Layout Interactivo */
+.panel-interactivo {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.panel-datos {
+    flex: 1;
+    min-width: 300px;
+}
+
+.grupo-input {
+    margin-bottom: 15px;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.grupo-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--borde);
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.btn-calcular {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--secundario);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-calcular:hover {
+    background-color: #3d8b40;
+}
+
+/* Panel de Resultados - Versión Compacta */
+.panel-resultados {
+    display: none; 
+    background-color: #eef9f0;
+    padding: 10px 15px; /* Reducimos el espacio interior arriba y abajo */
+    border-radius: 5px;
+    border: 1px solid #c8e6c9;
+}
+
+/* Quitamos el espacio extra que el navegador le pone al título por defecto */
+.panel-resultados h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.resultado-item {
+    margin-bottom: 5px; /* Reducimos la separación entre los incisos */
+    font-size: 16px;
+}
+
+/* Evitamos que el último inciso deje espacio extra hacia abajo */
+.resultado-item:last-child {
+    margin-bottom: 0;
+}
+
+.valor-resultado {
+    font-size: 18px; /* Ajusté un poco el tamaño para que encaje bien en la línea */
+    font-weight: bold;
+    color: var(--primario); /* Mantendrá el color azul */
+    margin-left: 10px; /* Un pequeño espacio entre los dos puntos y el resultado */
+}
+
+/* Animación */
+.panel-animacion {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.escenario {
+    flex-grow: 1;
+    background-color: #fff;
+    border: 2px dashed var(--borde);
+    border-radius: 5px;
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+}
+
+.rampa {
+    width: 85%;
+    height: 6px;
+    background-color: #333;
+    position: absolute;
+    bottom: 30px; /* Separación desde el fondo */
+    left: 20px;   /* Separación desde la izquierda */
+    transform-origin: left bottom; /* ¡CLAVE! La bisagra ahora está en la esquina inferior izquierda */
+}
+
+.bloque {
+    width: 50px;
+    height: 50px;
+    background-color: var(--bloque-color);
+    position: absolute;
+    bottom: 6px; /* Justo sobre la rampa */
+    /* Quitamos el transform: translateX que teníamos antes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* Línea horizontal (suelo) en la animación */
+.suelo-referencia {
+    position: absolute;
+    bottom: 30px; /* Misma altura donde empieza la rampa */
+    left: 20px;   /* Mismo origen de la rampa */
+    width: 80%;
+    height: 2px;
+    background-color: #333; /* Línea oscura para el suelo */
+    z-index: 1;
+}
+
+/* Texto del ángulo en la animación */
+.anim-etiqueta-angulo {
+    position: absolute;
+    bottom: 35px;
+    left: 70px;
+    color: red; /* Letras rojas como tu dibujo */
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 2;
+}
+
+/* Ajustamos el z-index de la rampa para que esté sobre el suelo */
+.rampa {
+    z-index: 3;
+    /* (Mantén el resto de propiedades de .rampa como width, height, bottom, left, etc.) */
+}
+
+/* Posicionamiento del lienzo de dibujo SVG ampliado */
+.arco-svg {
+    position: absolute;
+    bottom: 30px; /* Toca exactamente la línea del suelo */
+    left: 20px;   /* Nace exactamente donde inicia la rampa */
+    z-index: 2;
+    pointer-events: none; /* Para que no estorbe si das clic */
+}
+
+/* Texto de la Fuerza reubicado a la derecha del bloque */
+.anim-etiqueta-fuerza {
+    position: absolute;
+    top: 15px; /* Alineado al centro vertical del bloque */
+    left: 65px; /* Empujado hacia la derecha del bloque */
+    transform: none; /* Quitamos el transform anterior */
+    color: #004aad; 
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap; 
+}

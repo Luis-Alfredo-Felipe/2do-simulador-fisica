@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leyes de Newton - Proyecto Física</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <h1>****** 2da. y 3ra. Ley de Newton ******</h1>        
+        <div class="seccion-enunciado-texto">
+            <p class="texto-enunciado">
+                Un bloque de 75 kg es empujado con una fuerza de 250 N en un plano inclinado a 35° con la horizontal<br>
+                A- Calcular la aceleración del bloque considerando un coeficiente de fricción cinética (Uk) de 0.3<br>    
+                B- Calcular la aceleración del bloque sin considerar fricción
+            </p>
+        </div>
+
+        <div class="seccion-enunciado-imagen">
+            <div class="tarjeta-imagen">
+                <div class="titulo-imagen">ENUNCIADO DEL PROBLEMA</div>
+                <img src="figura_enunciado.png" alt="Enunciado" class="imagen-problema">
+            </div>
+            <div class="tarjeta-imagen">
+                <div class="titulo-imagen">DIAGRAMA CUERPO LIBRE</div>
+                <img src="figura_problema.png" alt="DCL" class="imagen-problema">
+            </div>
+        </div>
+
+        <div class="panel-interactivo">
+            <div class="panel-datos">
+                <h3>Variables de Entrada</h3>
+                <div class="grupo-input">
+                    <label for="masa">Masa (kg):</label>
+                    <input type="number" id="masa" value="75">
+                </div>
+                <div class="grupo-input">
+                    <label for="fuerza">Fuerza Aplicada (N):</label>
+                    <input type="number" id="fuerza" value="250">
+                </div>
+                <div class="grupo-input">
+                    <label for="angulo">Ángulo (°):</label>
+                    <input type="number" id="angulo" value="35">
+                </div>
+                <div class="grupo-input">
+                    <label for="friccion">Coeficiente Fricción (Uk):</label>
+                    <input type="number" step="0.1" id="friccion" value="0.3">
+                </div>
+                
+                <button onclick="ejecutarMision()" class="btn-calcular">Calcular y Animar</button>
+            </div>
+
+            <div class="panel-animacion">
+                <h3>Visualización</h3>
+                <div class="escenario" id="escenario">
+                    
+                    <div id="contenido-animacion" style="display: none; width: 100%; height: 100%;">
+                        
+                        <div class="suelo-referencia"></div>
+                        
+                        <svg class="arco-svg" width="100" height="100">
+                            <path id="arco-path" fill="none" stroke="red" stroke-width="2" />
+                        </svg>
+                        
+                        <div class="anim-etiqueta-angulo" id="anim-angulo">35°</div>
+
+                        <div class="rampa" id="rampa">
+                            <div class="bloque" id="bloque">
+                                <span id="anim-masa">75kg</span>
+                                <div class="anim-etiqueta-fuerza" id="anim-fuerza">F = 250 N</div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-resultados" id="panel-resultados">
+            <h3>Resultados de la Operación</h3>
+            
+            <div class="resultado-item">
+                <strong>Inciso A:</strong> Calcular la aceleración con fricción (Uk = <span id="lbl-uk">0.3</span>): 
+                <span class="valor-resultado">a = <span id="res-a">0.00</span> m/s²</span>
+            </div>
+            
+            <div class="resultado-item">
+                <strong>Inciso B:</strong> Calcular la aceleración sin fricción: 
+                <span class="valor-resultado">a = <span id="res-b">0.00</span> m/s²</span>
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
